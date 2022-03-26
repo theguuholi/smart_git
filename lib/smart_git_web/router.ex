@@ -10,9 +10,9 @@ defmodule SmartGitWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  # pipeline :api do
+  #   plug :accepts, ["json"]
+  # end
 
   scope "/", SmartGitWeb do
     pipe_through :browser
@@ -25,6 +25,7 @@ defmodule SmartGitWeb.Router do
   #   pipe_through :api
   # end
 
+  # coveralls-ignore-start
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -52,4 +53,5 @@ defmodule SmartGitWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+  # coveralls-ignore-stop
 end
