@@ -1,6 +1,6 @@
 <div class="bg-white w-full rounded-lg shaddow p-4">
     <ul data-role="list-repos" class="divide-y divide-gray-200">
-        <%= for repo <- @items do %>
+        <%= for repo <- @repos do %>
         <li class="p-10 hover:bg-gray-100 rounded-md hover:transition-all">
             <div class="flex space-x-3">
                 <img src={repo.avatar_url} alt="" class="h-6 w-6 rounded-full">

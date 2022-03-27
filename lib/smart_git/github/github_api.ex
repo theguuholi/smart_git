@@ -22,6 +22,7 @@ defmodule SmartGit.Github.Api do
         "owner" => %{"avatar_url" => avatar_url},
         "full_name" => full_name,
         "name" => name,
+        "id" => id,
         "watchers_count" => watchers_count,
         "forks" => forks,
         "description" => description,
@@ -31,6 +32,7 @@ defmodule SmartGit.Github.Api do
       } = item
 
       %{
+        id: id,
         avatar_url: avatar_url,
         full_name: full_name,
         watchers_count: watchers_count,
