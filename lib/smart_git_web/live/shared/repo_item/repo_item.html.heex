@@ -11,9 +11,16 @@
             <div class="flex items-center justify-between">
                 <p class="text-sm text-gray-500"><%= @repo.description %></p>
                 <a href="#" phx-click="add" phx-target={@myself}>
-                    <%= render SmartGitWeb.SharedView, "add_icon.html", %{color: "blue"} %>
+                    <%= render SmartGitWeb.SharedView, @icon, %{color: @color} %>
                 </a>
             </div>
+
+            <%= if @message != nil do %>
+            <div class="flex items-center justify-between">
+                <div></div>
+                <p class="text-sm text-green-500"><%= @message %></p>
+            </div>
+            <% end %>
         </div>
     </div>
 </li>

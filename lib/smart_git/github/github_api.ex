@@ -7,27 +7,12 @@ defmodule SmartGit.Github.Api do
   ]
 
   def list_repo(language, page, per_page) do
-    # @middleware
-    # |> Tesla.client()
-    # |> get("/search/repositories",
-    #   query: [q: "language:#{language}", sort: "start", order: "desc", page: page, per_page: per_page]
-    # )
-    # |> then(&prepare_result/1)
-    Enum.map(1..20, fn _ ->
-      %{
-        avatar_url: "https://avatars.githubusercontent.com/u/60711?v=4",
-        description: "A community driven style guide for Elixir",
-        forks: 293,
-        full_name: "christopheradams/elixir_style_guide",
-        id: :rand.uniform,
-        language: "Elixir",
-        name: "elixir_style_guide",
-        open_issues: 7,
-        url: "https://api.github.com/repos/christopheradams/elixir_style_guide",
-        watchers_count: 3955
-      }
-    end)
-
+    @middleware
+    |> Tesla.client()
+    |> get("/search/repositories",
+      query: [q: "language:#{language}", sort: "start", order: "desc", page: page, per_page: per_page]
+    )
+    |> then(&prepare_result/1)
   end
 
   defp prepare_result({:ok, %{body: %{"items" => items}}}) do

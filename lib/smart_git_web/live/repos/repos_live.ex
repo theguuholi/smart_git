@@ -1,6 +1,7 @@
 defmodule SmartGitWeb.ReposLive do
   use SmartGitWeb, :live_view
   alias SmartGitWeb.Shared.ListRepo
+  alias SmartGit.GitRepos
 
   def mount(_, _, socket) do
     {:ok, socket |> load_repos()}
@@ -11,6 +12,8 @@ defmodule SmartGitWeb.ReposLive do
   end
 
   defp load_repos(socket) do
-    assign(socket, repos: [])
+    repos = GitRepos.all()
+    IO.inspect repos
+    assign(socket, repos: repos)
   end
 end
