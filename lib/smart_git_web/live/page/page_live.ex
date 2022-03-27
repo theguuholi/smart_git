@@ -1,5 +1,6 @@
 defmodule SmartGitWeb.PageLive do
   use SmartGitWeb, :live_view
+  alias SmartGitWeb.PageLive.RepoItem
 
   def mount(_, _, socket) do
     assigns = [language: "elixir", page: 1, per_page: 10]
