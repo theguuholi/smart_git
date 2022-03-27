@@ -1,0 +1,7 @@
+<div class="bg-white w-full rounded-lg shaddow p-4" >
+    <ul data-role="list-repos" class="divide-y divide-gray-200" id={@id} phx-update="append">
+        <%= for repo <- @repos do %>
+        <%= live_component RepoItem, id: repo.id, repo: repo %>
+        <% end %>
+    </ul>
+</div>

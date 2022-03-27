@@ -1,10 +1,13 @@
 <nav class="mx-auto flex items-center justify-between py-4 mb-10 ">
     <div id="me">
-        <a href="https://github.com/elxpro-br" target="_blank" class="text-blue-500 hover:text-blue-700">elxpro-br-gitapp</a>
+        <a href="https://github.com/elxpro-br" target="_blank"
+            class="text-blue-500 hover:text-blue-700">elxpro-br-gitapp</a>
     </div>
     <div id="menu" class="text-blue-500 hover:text-blue-700">
         <ul class="flex items-center">
-            <li class="ml-6"><a href="#">My Favorite Repos</a></li>
+            <li class="ml-6">
+                <%= live_redirect "All my Repos", to: Routes.repos_path(@conn, :index) %>
+            </li>
         </ul>
     </div>
 </nav>

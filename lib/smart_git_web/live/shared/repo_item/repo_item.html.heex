@@ -10,7 +10,9 @@
             </div>
             <div class="flex items-center justify-between">
                 <p class="text-sm text-gray-500"><%= @repo.description %></p>
-                <button>add</button>
+                <a href="#" phx-click="add" phx-target={@myself}>
+                    <%= render SmartGitWeb.SharedView, "add_icon.html", %{color: "blue"} %>
+                </a>
             </div>
         </div>
     </div>
