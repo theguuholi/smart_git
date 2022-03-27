@@ -13,7 +13,6 @@ defmodule SmartGitWeb.ReposLive do
 
   defp load_repos(socket) do
     repos = GitRepos.all()
-    IO.inspect repos
     assign(socket, repos: repos)
   end
 end

@@ -3,9 +3,7 @@ defmodule SmartGit.GitRepos do
   alias SmartGit.GitRepos.GitRepo
   alias SmartGit.Repo
 
-  def create(%{id: id} = repo) do
-    repo = repo |> Map.delete(:id) |> Map.put(:git_id, id)
-
+  def create(repo) do
     %GitRepo{}
     |> GitRepo.changeset(repo)
     |> Repo.insert()
@@ -18,4 +16,8 @@ defmodule SmartGit.GitRepos do
   end
 
   def all(), do: Repo.all(GitRepo)
+
+  def get_by_git_id(id) do
+    Repo.get_by(GitRepo, git_id: id)
+  end
 end

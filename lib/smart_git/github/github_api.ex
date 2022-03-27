@@ -6,11 +6,12 @@ defmodule SmartGit.Github.Api do
     Tesla.Middleware.JSON
   ]
 
+  # https://docs.github.com/pt/rest/reference/search#search-repositories
   def list_repo(language, page, per_page) do
     @middleware
     |> Tesla.client()
     |> get("/search/repositories",
-      query: [q: "language:#{language}", sort: "start", order: "desc", page: page, per_page: per_page]
+      query: [q: "language:#{language}", sort: "stars", order: "desc", page: page, per_page: per_page]
     )
     |> then(&prepare_result/1)
   end
@@ -32,7 +33,7 @@ defmodule SmartGit.Github.Api do
       } = item
 
       %{
-        id: id,
+        git_id: id,
         avatar_url: avatar_url,
         full_name: full_name,
         watchers_count: watchers_count,
@@ -43,7 +44,6 @@ defmodule SmartGit.Github.Api do
         open_issues: open_issues,
         language: language
       }
-      |> IO.inspect()
     end)
   end
 end

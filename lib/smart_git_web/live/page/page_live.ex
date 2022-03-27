@@ -4,13 +4,17 @@ defmodule SmartGitWeb.PageLive do
   alias SmartGit.GitRepos
 
   def mount(_, _, socket) do
-    assigns = [language: "elixir", page: 1, per_page: 10]
-    {:ok, socket |> assign(assigns) |> load_repos() |> list_saved_repos()}
+    assigns = [language: "elixir", page: 1, per_page: 5]
+    {:ok, socket |> assign(assigns) |> load_repos() |> list_saved_repos(), temporary_assigns: [repos: []]}
   end
 
   def handle_event("load_repos", _, socket) do
     socket = socket |> update(:page, &(&1 + 1)) |> load_repos()
     {:noreply, socket}
+  end
+
+  def handle_event("select-language", %{"language" => language}, socket) do
+    {:noreply, socket |> assign(language: language) |> assign(repos: []) |> load_repos()}
   end
 
   defp list_saved_repos(socket) do

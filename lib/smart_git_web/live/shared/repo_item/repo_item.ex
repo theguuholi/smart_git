@@ -15,7 +15,7 @@ defmodule SmartGitWeb.Shared.RepoItem do
     repo = socket.assigns.repo
 
     if icon == "go_to.html" do
-      # socket = push_redirect(socket, to: Routes.git_repo_path(socket, :index, repo.id))
+      socket = push_redirect(socket, to: Routes.show_repo_path(socket, :index, repo.git_id))
       {:noreply, socket}
     else
       GitRepos.create(repo)

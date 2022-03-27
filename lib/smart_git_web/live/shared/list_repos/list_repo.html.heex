@@ -1,7 +1,7 @@
 <div class="bg-white w-full rounded-lg shaddow p-4" >
     <ul data-role="list-repos" class="divide-y divide-gray-200" id={@id} phx-update="append">
         <%= for repo <- @repos do %>
-        <%= live_component RepoItem, id: repo.id, repo: repo, saved_repos: @saved_repos %>
+        <%= live_component RepoItem, id: repo.git_id, repo: repo, saved_repos: @saved_repos %>
         <% end %>
     </ul>
 </div>

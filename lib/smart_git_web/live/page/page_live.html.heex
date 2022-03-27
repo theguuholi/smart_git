@@ -1,2 +1,29 @@
+<div class="mx-auto flex items-center justify-between py-4 mb-10 ">
+    <button phx-click="select-language" phx-value-language="elixir"
+        class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
+        Elixir
+    </button>
+
+    <button phx-click="select-language" phx-value-language="javascript"
+        class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+        Javascript
+    </button>
+
+    <button phx-click="select-language" phx-value-language="java"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        Java
+    </button>
+
+    <button phx-click="select-language" phx-value-language="python"
+        class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
+        Python
+    </button>
+
+    <button phx-click="select-language" phx-value-language="go"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+        Go
+    </button>
+
+</div>
 <%= live_component ListRepo, id: "git-repos", repos: @repos, saved_repos: @saved_repos %>
 <div id="load-repos" phx-hook="LoadRepos"></div>

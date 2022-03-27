@@ -1,0 +1,33 @@
+<div class="p-10 bg-white">
+    <div class="flex space-x-3">
+        <img src={@repo.avatar_url} alt="" class="h-50 w-50 rounded-full">
+        <div class="flex-1 space-y-1">
+            <div class="pt-10 flex items-center justify-between">
+                <p class="text-gray-900">
+                    <strong>Language: </strong>
+                </p>
+                <p><%= @repo.language %></p>
+            </div>
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium">
+                    <strong>Repo: </strong>
+                    <a href={@repo.url}><%= @repo.name %></a>
+                </h3>
+                <p class="text-sm text-gray-500">
+                    <strong>Forks:</strong> <%= @repo.forks %>
+                </p>
+            </div>
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium">
+                    <strong>Open Issues: </strong><%= @repo.open_issues %>
+                </h3>
+                <p class="text-sm text-gray-500">
+                    <strong>Watchers:</strong> <%= @repo.watchers_count %>
+                </p>
+            </div>
+            <div class="pt-10 flex items-center justify-between">
+                <p class="text-gray-800"><%= @repo.description %></p>
+            </div>
+        </div>
+    </div>
+</div>
