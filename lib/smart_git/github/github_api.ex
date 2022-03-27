@@ -16,6 +16,10 @@ defmodule SmartGit.Github.Api do
     |> then(&prepare_result/1)
   end
 
+  defp prepare_result({:ok, %{status: 403}}) do
+    {:error, "Limite excedido espere mais um pouco"}
+  end
+
   defp prepare_result({:ok, %{body: %{"items" => items}}}) do
     items
     |> Enum.map(fn item ->
