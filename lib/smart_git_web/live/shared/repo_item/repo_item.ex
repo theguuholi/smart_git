@@ -38,4 +38,37 @@ defmodule SmartGitWeb.Shared.RepoItem do
   defp assign_default(socket, %{repo: repo, id: id}) do
     assign(socket, repo: repo, id: id, message: nil)
   end
+
+  def info(assigns) do
+    ~H"""
+    <div class="flex items-center justify-between">
+      <h3 class="text-sm font-medium"><%= @name %></h3>
+      <p class="text-sm text-gray-500">
+          <strong>Watchers:</strong> <%= @watchers_count %>
+      </p>
+    </div>
+    """
+  end
+
+  def description(assigns) do
+    ~H"""
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-gray-500"><%= @description %></p>
+      <a href="#" phx-click="add" phx-target={@target}>
+          <%= render SmartGitWeb.SharedView, @icon, %{color: @color} %>
+      </a>
+    </div>
+    """
+  end
+
+  def message(assigns) do
+    ~H"""
+    <%= if @message != nil do %>
+    <div class="flex items-center justify-between">
+        <div></div>
+        <p class="text-sm text-green-500"><%= @message %></p>
+    </div>
+    <% end %>
+    """
+  end
 end
